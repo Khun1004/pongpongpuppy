@@ -1,0 +1,84 @@
+.category-btn {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.category-list {
+    display: none;
+    list-style: none;
+    padding: 10px 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 200px;
+    position: absolute;
+    z-index: 100;
+}
+
+.category-list::-webkit-scrollbar {
+    display: none;
+}
+
+.category-list li {
+    padding: 10px 0 10px 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+.category-list > li {
+    padding: 12px 0 12px 15px;
+}
+
+.category-list li:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+
+.sub-menu {
+    width: 300px;
+    height: 880px;
+    overflow-y: auto;
+    display: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ddd; 
+    z-index: 9999;
+}
+
+.sub-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.sub-categori{
+    border-bottom: 1px solid #ddd;
+}
+
+.sub-categori > li {
+    padding-left: 25px;
+}
+
+.sub-categori > a:first-child > li{
+    font-weight: 600;
+    margin: 7px 0;
+}
+
+.category-list li:hover .sub-menu {
+    display: block;
+    color: antiquewhite;
+}
+
+.menu li:hover .category-list {
+    display: block;
+}

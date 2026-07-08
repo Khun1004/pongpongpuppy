@@ -1,0 +1,41 @@
+.event-page {
+    padding: 10px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.event-page h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #000;
+    padding-bottom: 10px;
+    text-align: left;
+}
+
+.event-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.event-tabs span {
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.event-tabs span.active {
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+.event-page-content {
+    display: none;
+}
+
+.event-page-content.active {
+    display: block;
+    margin-top: 20px;
+}

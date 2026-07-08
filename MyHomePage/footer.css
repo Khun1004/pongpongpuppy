@@ -1,0 +1,27 @@
+/* Footer Styles */
+footer.footer {
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.8;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+footer.footer h3 {
+    font-size: 1.2em;
+    color: white;
+    margin: 10px 0;
+}
+
+footer.footer p,
+footer.footer a {
+    color: #bbb;
+    margin: 5px 0;
+    text-decoration: none;
+}
+
+footer.footer a:hover {
+    color: rgb(253, 101, 0);
+}

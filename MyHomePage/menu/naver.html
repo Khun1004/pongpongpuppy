@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!--header 시작-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            margin-left: 150px;
+            /* flex: 1; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: rgb(33, 82, 0);
+            color: white;
+            text-align: center;
+            padding: 0;
+            position: relative; 
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: rgb(255, 255, 255);
+        }
+        
+        .header img {
+            width: 200px;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        .header p {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .container {
+            margin-left: 150px;
+            /*flex: 1;*/
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer {
+            background-color: rgb(33, 82, 0);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: auto;
+            margin-left: 150px;
+            /* flex: 1; */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer p {
+            font-size: 0.875rem;
+        }
+    </style>
+    <style>
+        .home {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+    
+        .home a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.051);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-top: 1px solid rgba(250, 52, 52, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 10;
+            color: white;
+            border-radius: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: 0.5s;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+    
+        .home:hover a {
+            letter-spacing: 3px;
+            color: white;
+            background: black;
+            --clr: #fd6161;
+            --clr-glow: #d7e603;
+        }
+    </style>
+    <div class="content">
+        <div class="header">
+            <h1>풍풍파피</h1>
+            <img src="/MyHomePage/menu/images/쇼핑몰.png" alt="">
+            <div class="home" >
+                <a href="http://127.0.0.1/MyHomePage.html">HOME</a>
+            </div>
+        </div>
+
+        <!--main 시작-->
+        <style>
+            @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap");  
+            
+            .main {
+                /* flex: 1; */
+                background-color: #e7e7e7;
+                width: 100%;
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .btn {
+                position: relative;
+                width: 155px;
+                height: 50px;
+                margin: 20px;
+            }
+
+            .btn a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.051);
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+                border-top: 1px solid rgba(250, 52, 52, 0.1);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                z-index: 10;
+                color: #000000;
+                border-radius: 30px;
+                font-weight: 400;
+                letter-spacing: 1px;
+                text-decoration: none;
+                transition: 0.5s;
+                overflow: hidden;
+                backdrop-filter: blur(15px);
+            }
+
+            .btn:hover a {
+            letter-spacing: 3px;
+            }
+
+            .btn a:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.149), transparent);
+            transform: skewX(45deg);
+            transition: 0.5s;
+            transition-delay: 0.5s;
+            }
+
+            a:hover::before {
+            transform: skewX(45deg) translateX(200%);
+            transition-delay: 0s;
+            }
+
+            .btn:before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--clr-glow);
+            bottom: -5px;
+            width: 30px;
+            height: 10px;
+            border-radius: 10px;
+            transition: 0.5s;
+            transition-delay: 0s;
+            }
+
+            .btn:hover::before {
+            bottom: 0px;
+            height: 50%;
+            width: 80%;
+            border-radius: 30px;
+            transition-delay: 0.5s;
+            }
+
+            .btn:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--clr-glow);
+            top: -5px;
+            width: 30px;
+            height: 10px;
+            border-radius: 10px;
+            transition: 0.5s;
+            transition-delay: 0s;
+            }
+
+            .btn:hover::after {
+            top: 0px;
+            height: 50%;
+            width: 80%;
+            border-radius: 30px;
+            transition-delay: 0.5s;
+            }
+
+            .btn:nth-child(1):before,
+            .btn:nth-child(1):after {
+            background: var(--clr);
+            box-shadow: 0 0 5px var(--clr), 0 0 15px var(--clr), 0 0 30px var(--clr),
+                0 0 60px var(--clr);
+            }
+
+            .btn:nth-child(2):before,
+            .btn:nth-child(2):after {
+            background: var(--clr);
+            box-shadow: 0 0 5px var(--clr), 0 0 15px var(--clr), 0 0 30px var(--clr),
+                0 0 60px var(--clr);
+            }
+
+            .btn:nth-child(3):before,
+            .btn:nth-child(3):after {
+            background: var(--clr);
+            box-shadow: 0 0 5px var(--clr), 0 0 15px var(--clr), 0 0 30px var(--clr),
+                0 0 60px var(--clr);
+            }
+        </style>
+        <div class="main">
+            <div class="btn" style="--clr: #78fd61; --clr-glow: #4003e6">
+            <a href="#" id="allproductsLink">전체 상품</a>
+            </div>
+            <div class="btn" style="--clr: #2dd9fe; --clr-glow:#00a3d5">
+            <a href="#">반려견 하우스</a>
+            </div>
+            <div class="btn"  style="--clr: #FF53cd; --clr-glow: #e10361">
+            <a href="#">반려견 TV</a>
+            </div>
+            <div class="btn"  style="--clr: #dfff29; --clr-glow: #e15365">
+                <a href="#">방탄 CCTV</a>
+            </div>
+            <div class="btn"  style="--clr: #f7bb3a; --clr-glow: #10a3d5">
+                <a href="#">반려견 용품</a>
+            </div>
+        </div>
+        <!--main 끝-->
+    </div>
+    <!--header 시작-->
+
+
+    <!--container 시작-->
+    <style>
+        #container {
+            margin-left: 150px;
+            display: flex;
+            flex-direction: column;
+        }
+        .section {
+            display: none;
+        }
+    </style>
+    <div id="container">
+        <div id="allproducts" class="section">
+            <h1>전체 상품</h1>
+            <ul>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img1.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img2.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img3.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img4.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img5.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img6.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+            </ul>
+        </div>
+    
+        <div id="petHouse" class="section">
+            <h1>반려견 하우스</h1>
+            <ul>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img1.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img2.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img3.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img4.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img5.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+                <li>
+                    <img src="/MyHomePage/menu/shoppingImages/img6.jpg" alt="">
+                    <caption>
+                        <p>물건 1</p>
+                        <p>Price : 150000</p>
+                    </caption>
+                </li>
+            </ul>
+            
+        </div>
+    
+        <div id="petTv" class="section">
+            <h1>반려견 TV</h1>
+            <img src="/MyHomePage/menu/shoppingImages/img1.jpg" alt="">
+            <caption>
+                <p>물건 1</p>
+                <p>Price : 150000</p>
+            </caption>
+        </div>
+    
+        <div id="cctv" class="section">
+            <h1>방탄 CCTV</h1>
+            <img src="/MyHomePage/menu/shoppingImages/img1.jpg" alt="">
+            <caption>
+                <p>물건 1</p>
+                <p>Price : 150000</p>
+            </caption>
+        </div>
+    
+        <div id="petSupplies" class="section">
+            <h1>반려견 용품</h1>
+            <img src="/MyHomePage/menu/shoppingImages/img1.jpg" alt="">
+            <caption>
+                <p>물건 1</p>
+                <p>Price : 150000</p>
+            </caption>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("allproductsLink").addEventListener("click", function() {
+            document.querySelectorAll('.section').forEach(function(section) {
+                section.style.display = 'none';
+            });
+            document.getElementById("allproducts").style.display = 'block';
+        });
+        document.querySelectorAll('.btn a').forEach(function(link) {
+            link.addEventListener("click", function(e) {
+                e.preventDefault(); // Prevent default anchor link behavior
+                let sectionId = link.id.replace("Link", "").toLowerCase(); // Get the section ID by removing 'Link' suffix
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(function(section) {
+                    section.style.display = 'none';
+                });
+                // Show the relevant section
+                let section = document.getElementById(sectionId);
+                if (section) {
+                    section.style.display = 'block';
+                }
+            });
+        });
+    </script>
+    
+    <!--container 끝-->
+
+    <style>
+        :root {
+            --bg: #151F28;
+        }
+        
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 150px;
+            background: #151F28;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    
+        .menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+        
+        .menu ul li {
+            position: relative;
+            list-style: none;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        
+        .menu ul li:before {
+            content: "";
+            position: absolute;
+            inset: 30px;
+            box-shadow: 0 0 0 10px var(--clr), 0 0 0 20px var(--bg), 0 0 0 22px var(--clr);
+            transition: 0.5s;
+        }
+        
+        .menu ul li:hover:before {
+            inset: 0;
+        }
+        
+        .menu ul li:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--bg);
+            transform: rotate(45deg);
+        }
+
+        .menu ul li:hover {
+            z-index: 1000;
+            transform: scale(0.75);
+        }
+        
+        .menu ul li a {
+            position: relative;
+            text-decoration: none;
+            color: var(--clr);
+            font-size: 1.5em;
+            z-index: 10;
+            transition: 0.5s;
+        }
+        
+        .menu ul li a:hover {
+            font-size: 3em;
+            filter: drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))
+            drop-shadow(0 0 60px var(--clr));
+        }
+
+
+
+        .menu ul li {
+            list-style: none;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .menu ul li a {
+            color: var(--clr);
+            font-size: 1.5em;
+            transition: 0.5s;
+            text-decoration: none;
+        }
+
+        .menu ul li a:hover {
+            font-size: 2em;
+            filter: drop-shadow(0 0 20px var(--clr)) drop-shadow(0 0 40px var(--clr))
+            drop-shadow(0 0 60px var(--clr));
+        }
+    </style>
+    <div class="menu">
+        <ul>
+            <li style="--clr: #1877f2">
+            <a data-url="#">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            </li>
+            <li style="--clr: #ff0000">
+            <a data-url="#">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+            </li>
+            <li style="--clr: #1da1f2">
+            <a data-url="#">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            </li>
+            <li style="--clr: #c32aa3">
+            <a data-url="#">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            </li>
+            <li style="--clr: #25d366">
+            <a data-url="#">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        <p>풍풍파피</p>
+        <p>&copy; "풍풍파피 쇼핑몰에 오신 거 환영합니다."</p>
+    </div>
+</body>
+</html>

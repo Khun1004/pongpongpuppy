@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인스타 구경하기</title>
+</head>
+<body>
+    <style>
+        @charset "UTF-8";
+        @import url("S-Core-Dream-light/s-core-dream.css");
+        @import url("GmarketSans/GmarketSans.css");
+        @import url("NEXON_Lv2_Gothic/NEXON Lv2 Gothic.css"); 
+
+        * {margin: 0; padding: 0;
+            font-family: "s-core-dream-light", sans-serif !important;}
+        body, ul, li {margin: 0; padding: 0; list-style: none;}
+        a {text-decoration: none; color: inherit;}
+
+        /*------------------ 라이브러리 -----------------*/ 
+        .block {display: block;}
+        .inline-block {display: inline-block;}
+        .relative {position: relative;}
+        .relative-Allcenter {position: absolute; top: 50%; left: 50%; transform:translate(-50%, -50%);}
+        .absolute {position: absolute;}
+        .absolute-Xcenter {position: absolute; top: 50%; transform:translateX(-50%);}
+        .absolute-Ycenter {position: absolute; top: 50%; transform:translateY(-50%);}
+        .absolute-Allcenter {position: absolute; top: 50%; left: 50%; transform:translate(-50%, -50%);}
+        .absolute-center {position: absolute; transform:translate(-50%, -50%);}
+        .fixed {position: fixed;}
+        .row::after {display: block; content: ""; clear: both;}
+        .cell {float: left; box-sizing: border-box;}
+        .cell-right {float: right; box-sizing: border-box;}
+        .img-box>img {display: block; width: 100%; height: 100%;}
+        .bg-cover>img {background-size: cover; box-sizing: border-box;}
+        .con {margin: 0 auto; box-sizing: border-box;}
+        .flex {display: flex;}
+        .flex > .cell {float: none;}
+        .flex-1-0-auto>* {flex: 1 0 auto;}
+        .before::before {display: block; content: ""; clear: both; position: absolute;}
+        .after::after {display: block; content: ""; clear: both; position: absolute;}
+
+        @media (max-width: 3840px) {
+        .visual{
+            width: 1260px;
+            height: 100vh;
+            margin: 0 auto;
+        }
+
+        /*************** left_Box ***************/
+        .visual>.left_Box {
+            width: 30%;
+            height: 100vh;
+            background-color: #906015;
+        }
+
+        .visual>.right_Box {
+            width: 70%;
+            height: 100vh;
+        }
+
+        .wellcome {
+            top: 25%;
+            left: 50%;    
+            width: 320px;
+            text-align: center;
+            padding: 20px 0px;
+            border-radius: 15px;
+            border: 2px solid #c6923f;
+            box-sizing: border-box;
+        }
+
+        .visual>.left_Box>a {
+            top: 25%;
+            left: 50%;    
+            width: 320px;
+            color: #906015;
+            background-color: #ffce73;
+            text-align: center;
+            padding: 20px 0px;
+            border-radius: 15px;
+            border: 2px solid #b1791f;
+            box-sizing: border-box;
+        }
+
+        .visual>.left_Box>a:hover {
+            color: #ffffff;
+            background-color: #b1791f;
+        }
+
+        .visual>.left_Box>a:nth-of-type(1) {
+            top: 50%;
+        }
+
+        .visual>.left_Box>a:nth-of-type(2) {
+            top: 70%;
+        }
+
+        .wellcome>h3 {
+            font-family: "NEXON Lv2 Gothic-bold", sans-serif !important;
+            color: #ffffff;
+            line-height: 200%;
+        }
+
+        .wellcome>h3>span {
+            font-family: "NEXON Lv2 Gothic-bold", sans-serif !important;
+            font-size: 30px;
+            color: #ffa600;
+        }
+
+        /*************** right_Box ***************/
+        .Select_Wrap {
+            width: 860px;
+            margin: 70px auto;
+        }
+
+        .Select_Wrap>.Select_Tap {
+            height: 87px;
+        }
+
+        .Select_Wrap>.Select_Tap>li {
+            width: 27%;
+            height: 87px;
+            margin: 0px 3.1%;
+        }
+
+        .Select_Wrap>.Select_Tap>li>a {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+
+        .Select_Wrap>.Select_Tap>li>a>div {
+            height: 100%;
+        }
+
+        .Select_Wrap>.Select_Tap>li>a>div>.back_Color {
+            left: 2.5%;
+            bottom: 1px;
+            width: 95%;
+            height: 80px;
+            background-color: #ffffff;
+            transition: 0.5s;
+        }
+
+        .Select_Wrap>.Select_Tap>.Tab_003>a>div>.back_Color {
+            background-color: #FFEBCD;
+        }
+
+        .Select_Box {
+            width: 860px;
+            border-radius: 30px;
+            border: 6px solid #906015;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px #999999;
+            margin-top: -1px;
+        }
+
+        .Select_Box>.Box {
+            width: 860px;
+            padding:30px;
+            box-sizing: border-box;
+        }
+
+        .Select_Box>.Box>h2 {
+            font-family: "s-core-dream-bold", sans-serif !important;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .Select_Box>.row>div:nth-of-type(1)>a:nth-of-type(1) {
+            display: inline-block;
+            width: 300px;
+            font-size: 20px;
+            color: #906015;
+            background-color: #ffce73;
+            text-align: center;
+            padding: 20px 0px;
+            border-radius: 15px;
+            border: 2px solid #b1791f;
+            box-sizing: border-box;
+        }
+
+        .Select_Box>.row>div>a:nth-of-type(1):hover {
+        color: #ffffff;
+        background-color: #b1791f;
+        }
+
+        .Select_Box>.Box>.Select_Month>a {
+            width: 14.666%;
+            height: 170px;
+            margin: 0px 1% 75.5px;
+            box-shadow: 2px 2px 5px #777777;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(6) {
+            margin-right: 0px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(12) {
+            margin-right: 0px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a>h4 {
+            color: #906015;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .Select_Box>.Box_001 {
+            display: none;
+        }
+
+        .Select_Box>.Box_002 {
+            display: none;
+        }
+
+        .Select_Box>.Box_003 {
+            display: block;
+        }
+
+        .Select_Box>.row>div {
+            width: 50%;
+        }
+
+        .Select_Box>.row>div:nth-of-type(2) {
+            box-shadow: 0px 0px 5px #444444;
+        }
+
+        .Select_Box>.row>div>h2 {
+            font-family: "s-core-dream-bold", sans-serif !important;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        }
+
+        @media (max-width: 1260px) {
+        .visual{
+            width: 860px;
+        }
+
+        /*************** left_Box ***************/
+        .visual>.left_Box {width: 200px;}
+
+        .visual>.right_Box {width: 660px;}
+
+        .wellcome {
+            top: 25%;
+            width: 90%;
+            padding: 10px 0px;
+            border-radius: 5px;
+        }
+
+        .visual>.left_Box>a {
+            top: 25%;
+            width: 70%;
+            font-size: 12px;
+            padding: 10px 0px;
+            border-radius: 5px;
+        }
+
+        .visual>.left_Box>a:nth-of-type(1) {
+            top: 55%;
+        }
+
+        .visual>.left_Box>a:nth-of-type(2) {
+            top: 70%;
+        }
+
+        .wellcome>h3 {
+            font-size: 12px;
+            line-height: 200%;
+        }
+
+        .wellcome>h3>span {
+            font-size: 20px;
+        }
+
+        /*************** right_Box ***************/
+        .Select_Wrap {
+            width: 600px;
+            margin: 20px auto;
+        }
+
+        .Select_Wrap>.Select_Tap {
+            height: 61px;
+        }
+
+        .Select_Wrap>.Select_Tap>li {
+            width: 27%;
+            height: 61px;
+            margin: 0px 3.1%;
+        }
+
+        .Select_Wrap>.Select_Tap>li>a>div>.back_Color {
+            left: 2.5%;
+            bottom: 1px;
+            width: 95%;
+            height: 60px;
+        }
+
+        .Select_Box {
+            width: 600px;
+            border-radius: 20px;
+            border: 4px solid #906015;
+            box-shadow: 0px 0px 10px #999999;
+            margin-top: -1px;
+        }
+
+        .Select_Box>.Box {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .Select_Box>.Box>h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .Select_Box>.row>div:nth-of-type(1)>a:nth-of-type(1) {
+            width: 240px;
+            font-size: 18px;
+            padding: 10px 0px;
+            border-radius: 5px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a {
+            width: 14.666%;
+            height: 120px;
+            margin: 1px 1% 30px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(6) {
+            margin-right: 0px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(12) {
+            margin-right: 0px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a>h4 {
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .Select_Box>.row>div:nth-of-type(1) {
+            width: 58%;
+        }
+
+        .Select_Box>.row>div:nth-of-type(2) {
+            width: 42%;
+        }
+
+        .Select_Box>.row>div>h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        }
+
+        @media (max-width: 860px) {
+        .visual{
+            width: 360px;
+        }
+
+        /*************** left_Box ***************/
+        .visual>.left_Box {width: 100%; height: 85px;}
+
+        .visual>.right_Box {width: 100%;}
+
+        .wellcome {
+            top: 10px;
+            left: 140px;
+            width: 68%;
+            padding: 5px 0px;
+            border-radius: 5px;
+        }
+
+        .visual>.left_Box>a {
+            width: 22%;
+            font-size: 10px;
+            padding: 5px 0px;
+            border-radius: 5px;
+        }
+
+        .visual>.left_Box>a:nth-of-type(1) {
+            top: 10px;
+            left: 310px;
+        }
+
+        .visual>.left_Box>a:nth-of-type(2) {
+            top: 47px;
+            left: 310px;
+        }
+
+        .wellcome>h3 {
+            font-size: 12px;
+            line-height: 200%;
+        }
+
+        .wellcome>h3>span {
+            font-size: 20px;
+        }
+
+        /*************** right_Box ***************/
+        .Select_Wrap {
+            width: 100%;
+            margin: 20px auto;
+        }
+
+        .Select_Wrap>.Select_Tap {
+            height: 37px;
+        }
+
+        .Select_Wrap>.Select_Tap>li {
+            width: 27%;
+            height: 37px;
+            margin: 0px 3.1%;
+        }
+
+        .Select_Wrap>.Select_Tap>li>a>div>.back_Color {
+            left: 2.5%;
+            bottom: 1px;
+            width: 95%;
+            height: 30px;
+        }
+
+        .Select_Box {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px solid #906015;
+            box-shadow: 0px 0px 10px #999999;
+            margin-top: -1px;
+        }
+
+        .Select_Box>.Box {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .Select_Box>.Box>h2 {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+
+        .Select_Box>.row>div:nth-of-type(1)>a:nth-of-type(1) {
+            display: block;
+            width: 120px;
+            font-size: 18px;
+            padding: 5px 0px;
+            border-radius: 5px;
+            margin: 0 auto 10px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a {
+            width: 23%;
+            height: 120px;
+            margin: 7.2px 1% 18px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(6) {
+            margin-right: 1%;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(12) {
+            margin-right: 1%;
+        }
+
+        .Select_Box>.Box>.Select_Month>a>h4 {
+            font-size: 10px;
+            margin-top: 5px;
+        }
+
+        .Select_Box>.row>div:nth-of-type(1) {
+            width: 100%;
+        }
+
+        .Select_Box>.row>div:nth-of-type(2) {
+            width: 80%;
+            margin-left: 35px;    
+        }
+
+        .Select_Box>.row>div>h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        }
+
+        @media (max-width: 380px) {
+        .visual{
+            width: 340px;
+        }
+
+        /*************** left_Box ***************/
+        .visual>.left_Box {height: 85px;}
+
+        .wellcome {
+            top: 10px;
+            left: 120px;
+            width: 64%;
+        }
+
+        .visual>.left_Box>a {
+            width: 26%;
+        }
+
+        .visual>.left_Box>a:nth-of-type(1) {
+            top: 10px;
+            left: 284px;
+        }
+
+        .visual>.left_Box>a:nth-of-type(2) {
+            top: 47px;
+            left: 284px;
+        }
+
+        .wellcome>h3 {
+            font-size: 12px;
+        }
+
+        .wellcome>h3>span {
+            font-size: 20px;
+        }
+
+        /*************** right_Box ***************/
+        .Select_Wrap {
+            width: 100%;
+            margin: 10px auto;
+        }
+
+        .Select_Wrap>.Select_Tap {
+            height: 34px;
+        }
+
+        .Select_Wrap>.Select_Tap>li {
+            width: 27%;
+            height: 38px;
+            margin: 0px 3.1%;
+        }
+
+        .Select_Wrap>.Select_Tap>li>a>div>.back_Color {
+            left: 2.5%;
+            bottom: 4px;
+            width: 95%;
+            height: 30px;
+        }
+
+        .Select_Box {
+            margin-top: 0px;
+        }
+
+        .Select_Box>.Box {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .Select_Box>.Box>h2 {
+            font-size: 16px;
+        }
+
+        .Select_Box>.row>div:nth-of-type(1)>a:nth-of-type(1) {
+            padding: 5px 0px;
+            border-radius: 5px;
+            margin: 0 auto 10px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a {
+            width: 23%;
+            height: 120px;
+            margin: 7.5px 1% 10px;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(6) {
+            margin-right: 1%;
+        }
+
+        .Select_Box>.Box>.Select_Month>a:nth-of-type(12) {
+            margin-right: 1%;
+        }
+
+        .Select_Box>.Box>.Select_Month>a>h4 {
+            font-size: 8px;
+            margin-top: 5px;
+        }
+
+        .Select_Box>.row>div:nth-of-type(1) {
+            width: 100%;
+        }
+
+        .Select_Box>.row>div:nth-of-type(2) {
+            width: 80%;
+        }
+
+        .Select_Box>.row>div>h2 {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".Select_Tap li");
+            const boxes = document.querySelectorAll(".Select_Box .Box");
+        
+            tabs.forEach((tab, index) => {
+                tab.addEventListener("click", () => {
+                    
+                    boxes.forEach((box) => {
+                        box.style.display = "none";
+                    });
+        
+                    
+                    boxes[index].style.display = "block";
+        
+                    
+                    tabs.forEach((t) => t.classList.remove("active"));
+        
+                    
+                    tab.classList.add("active");
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".Select_Tap li");
+        
+            tabs.forEach((tab) => {
+                tab.addEventListener("click", () => {
+                    // 모든 탭의 색상을 초기화
+                    tabs.forEach((t) => {
+                        const backColor = t.querySelector(".back_Color");
+                        const frontImg = t.querySelector(".front_Img");
+        
+                        if (backColor && frontImg) {
+                            backColor.style.backgroundColor = "rgb(255, 255, 255)";
+                            frontImg.style.backgroundColor = "rgb(255, 255, 255)";
+                        }
+                    });
+        
+                    // 클릭한 탭의 색상 변경
+                    const backColor = tab.querySelector(".back_Color");
+                    const frontImg = tab.querySelector(".front_Img");
+        
+                    if (backColor && frontImg) {
+                        backColor.style.backgroundColor = "rgb(255, 235, 205)";
+                        frontImg.style.backgroundColor = "rgb(255, 235, 205)";
+                    }
+                });
+            });
+        });
+        
+    </script>
+    <style>
+        .Select_Tap li.active {
+            border-bottom: 3px solid #000;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+    <div class="visual row">
+        <div class="left_Box cell relative img-box bg-cover">
+            <div class="wellcome absolute-Xcenter">
+                <h3> 반려동물과 함께하는 일상정보 <br>
+                    <span>"딩펫 메거진"</span>입니다. </h3>
+            </div>
+            <a href="https://www.dinkpet.co.kr" target="_blank" class="shoping_mall absolute-Xcenter">
+                <h3>딩펫 쇼핑몰</h3>
+            </a>            
+            <a href="https://www.dinkpet.kr/" target="_blank" class="pet_salon absolute-Xcenter">
+                <h3>딩펫 펫 살롱</h3>
+            </a>
+        </div>
+
+        <div class="right_Box cell">
+            <div class="Select_Wrap">
+                <ul class="Select_Tap row">
+                    <li class="Tab_001 cell relative">
+                        <a class="Tab_001_Img absolute">
+                            <div class="relative">
+                                <div class="absolute back_Color" style="background-color: rgb(255, 255, 255);"></div>
+                                <div class="absolute front_Img img-box bg-cover" style="background-color: rgb(255, 255, 255);">
+                                    <img src="/MyHomePage/MyHomePage/menu/images/전체보기.png" alt="전체보기">
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+        
+                    <li class="Tab_002 cell relative">
+                        <a class="Tab_002_Img absolute">
+                            <div class="relative">
+                                <div class="absolute back_Color" style="background-color: rgb(255, 255, 255);"></div>
+                                <div class="absolute front_Img img-box bg-cover" style="background-color: rgb(255, 255, 255);">
+                                    <img src="/MyHomePage/MyHomePage/menu/images/지난호.png" alt="전체보기">
+                                </div>                        
+                            </div>
+                        </a>                
+                    </li>
+        
+                    <li class="Tab_003 cell relative">
+                        <a class="Tab_003_Img absolute">
+                            <div class="relative">
+                                <div class="absolute back_Color" style="background-color: rgb(255, 235, 205);"></div>
+                                <div class="absolute front_Img img-box bg-cover" style="background-color: rgb(255, 235, 205);">
+                                    <img src="/MyHomePage/MyHomePage/menu/images/이번호.png" alt="전체보기">
+                                </div>
+                            </div>
+                        </a>                
+                    </li>
+                </ul>
+        
+                <ul class="Select_Box row">
+                    <li class="Box Box_001 cell" style="display: none;">
+                        <h2 class="Box_001_Text">예전호</h2>
+                        <div class="Select_Month row">
+
+                            <a href="#" class="Month_001 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V202306.jpg" alt="Month">
+                                <h4>2023. Vol.1</h4>
+                            </a>
+                            <a href="#" class="Month_002 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V202307.jpg" alt="Month">
+                                <h4>2023. Vol.2</h4>
+                            </a>
+                            <a href="#" class="Month_003 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V202308.jpg" alt="Month">
+                                <h4>2023. Vol.3</h4>
+                            </a>
+                            <a href="#" class="Month_004 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V202309.jpg" alt="Month">
+                                <h4>2023. Vol.4</h4>
+                            </a>
+                            <a href="#" class="Month_005 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V202310.jpg" alt="Month">
+                                <h4>2023. Vol.5</h4>
+                            </a>
+                            <a href="#" class="Month_006 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_Vol_0006.jpg" alt="Month">
+                                <h4>2023. Vol.6</h4>
+                            </a>
+                            <a href="#" class="Month_007 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_Vol_0007.jpg" alt="Month">
+                                <h4>2023. Vol.7</h4>
+                            </a>                                                    
+                            <a href="#" class="Month_008 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V000.jpg" alt="Month">
+                            </a>
+                            <a href="#" class="Month_009 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V000.jpg" alt="Month">
+                            </a>
+                            <a href="#" class="Month_010 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V000.jpg" alt="Month">
+                            </a>
+                            <a href="#" class="Month_011 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V000.jpg" alt="Month">
+                            </a>
+                            <a href="#" class="Month_012 cell img-box bg-cover">
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_V000.jpg" alt="Month">
+                            </a>                    
+                        </div>
+                    </li>
+        
+                    <li class="Box Box_002 cell row" style="display: none;">
+                        <div class="cell">
+                            <h2 class="Box_002_Text">2023년도 Vol.5</h2>
+                            <a href="#" class="Prev_View">지난호 보기</a>
+                        </div>   
+                        <div class="cell">
+                            <div class="Before_Month img-box bg-cover">                
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_Vol_0006.jpg" alt="Month">
+                            </div>    
+                        </div>            
+                    </li>
+        
+                    <li class="Box Box_003 cell row" style="display: block;">
+                        <div class="cell">
+                            <h2 class="Box_003_Text">2024년도 Vol.6</h2>
+                            <a href="/MyHomePage/MyHomePage/menu/This_View.jsp" class="This_View">이번호 보기</a>
+                        </div>
+                        <div class="cell">
+                            <div class="This_Month img-box bg-cover">                
+                                <img src="/MyHomePage/MyHomePage/menu/images/DPM_Vol_0007.jpg" alt="Month">
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

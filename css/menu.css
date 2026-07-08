@@ -1,0 +1,45 @@
+/* menu.css */
+.menu {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+}
+
+.menu li {
+    text-align: left;
+}
+
+.menu > li {
+    position: relative;
+    text-align: center;
+    margin: auto;
+}
+
+.menu-focus {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    position: relative;
+}
+
+.menu-focus::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -22px; 
+    width: 100%;
+    height: 2px;
+    background-color: #333; 
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.menu-focus:hover::after,
+.menu-focus:focus::after,
+.menu-focus:active::after {
+    transform: scaleX(1);
+}

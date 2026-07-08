@@ -1,0 +1,5 @@
+.login_block {display:none;}
+.logout_block {display:block;}
+.login_inline {display:none;}
+.logout_inline {display:inline-block; zoom:1; display:inline;}
+
